@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	
+	<bean id="service" class="assignment16.MyMessageSender">
+		<property name="ms" ref="email"></property>
+	</bean>
+	<bean id="email" class="assignment16.EmailService"></bean>
+	<bean id="watsapp" class="assignment16.WhatsappService"></bean>
+	<bean id="twitter" class="assignment16.TwitterService"></bean>
+	
+	</beans>

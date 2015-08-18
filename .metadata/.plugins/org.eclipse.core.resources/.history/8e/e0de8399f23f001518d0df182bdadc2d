@@ -1,0 +1,47 @@
+package jdbc;
+
+import java.awt.image.RescaleOp;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class EmployeeDAOImpl implements EmployeeDAO {
+
+	private Connection conn;
+	private PreparedStatement pst;
+	private ResultSet rs;
+	public void getDBConnection(){
+		try{
+			Class.forName("oracle.jdbc.OracleDriver");
+			String url="jdbc:oracle:thin:@localhost:1521:orcl";
+			conn=DriverManager.getConnection(url, "scott","tiger");
+		}catch(ClassNotFoundException | SQLException e ){
+			e.printStackTrace();
+		}
+	}
+	public void closeDBConnection(){
+		try{
+			conn.close();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+	}
+	public void addEmployee(Employee employee){
+		getDBConnection();
+		String query="insert into employee value(?,?,?)";
+		try{
+			pst=conn.prepareStatement(query);
+			pst.setInt(1, employee.getEmpcode());
+			pst.setString(2, employee.getEmpname());
+			pst.setDouble(3, employee.getSalary());
+			pst.executeUpdate();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		finally{
+			closeDBConnection();
+		}
+	}
+}

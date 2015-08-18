@@ -1,0 +1,5 @@
+package assignment20;
+
+public interface BillAmount {
+	public float discount(float salary, float disc);
+}

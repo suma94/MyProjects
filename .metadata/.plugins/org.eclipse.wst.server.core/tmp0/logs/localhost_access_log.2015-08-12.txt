@@ -1,0 +1,12 @@
+127.0.0.1 - - [12/Aug/2015:11:46:52 +0530] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [12/Aug/2015:11:46:53 +0530] "GET /ServletDemo/ HTTP/1.1" 404 975
+0:0:0:0:0:0:0:1 - - [12/Aug/2015:11:47:15 +0530] "GET /ServletDemo/DeleteEmployee.jsp HTTP/1.1" 200 382
+0:0:0:0:0:0:0:1 - - [12/Aug/2015:11:47:19 +0530] "GET /ServletDemo/DeleteEmployee?empcode=123 HTTP/1.1" 200 16
+127.0.0.1 - - [12/Aug/2015:12:00:10 +0530] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [12/Aug/2015:12:00:10 +0530] "GET /ServletDemo/ HTTP/1.1" 404 975
+0:0:0:0:0:0:0:1 - - [12/Aug/2015:12:00:19 +0530] "GET /ServletDemo/DeleteEmployee.jsp HTTP/1.1" 200 382
+0:0:0:0:0:0:0:1 - - [12/Aug/2015:12:00:21 +0530] "GET /ServletDemo/DeleteEmployee.jsp HTTP/1.1" 200 382
+0:0:0:0:0:0:0:1 - - [12/Aug/2015:12:00:21 +0530] "GET /ServletDemo/DeleteEmployee.jsp HTTP/1.1" 200 382
+0:0:0:0:0:0:0:1 - - [12/Aug/2015:12:00:33 +0530] "GET /ServletDemo/DeleteEmployee?empcode=123 HTTP/1.1" 200 16
+0:0:0:0:0:0:0:1 - - [12/Aug/2015:14:00:19 +0530] "GET /ServletDemo/Insert.jsp HTTP/1.1" 200 497
+0:0:0:0:0:0:0:1 - - [12/Aug/2015:14:00:19 +0530] "GET /favicon.ico HTTP/1.1" 404 973

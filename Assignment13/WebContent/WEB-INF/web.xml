@@ -1,0 +1,10 @@
+<web-app>
+<server>
+<server-name>accept</server-name>
+<server-class>Assignment13.AcceptServlet</server-class>
+</server>
+<server-mapping>
+<server-name>accept</server-name>
+<url-pattern>/acc</url-pattern>
+</server-mapping>
+</web-app>
