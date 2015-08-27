@@ -1,0 +1,44 @@
+package org.tempuri;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class Suspend
+ */
+@WebServlet("/Suspend")
+public class Suspend extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Suspend() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int cid=Integer.parseInt(request.getParameter("customerID"));
+		Service1 p=new Service1();
+		Service1Soap p1=p.getService1Soap();
+		ArrayOfClass2 p2=p1.getservice(cid);
+		ArrayList<Class2> l= (ArrayList<Class2>) p2.getClass2();
+		{
+				
+		}
+			
+			
+	}
+
+}

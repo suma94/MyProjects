@@ -1,0 +1,39 @@
+package com.suspendRestore.Test;
+
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.Test;
+
+import com.suspendRestore.GetCustomerInfoBean;
+import com.suspendRestore.SuspendDAOImpl;
+
+public class DAOImplTest {
+	SuspendDAOImpl dao;
+	@Before
+	public void initEnvironment()//SETS UP TESTING ENVIRONMENT
+	{
+		dao=new SuspendDAOImpl();
+		System.out.println("creating test environment");
+	}
+	@Test
+	public void test() {
+		String input1="2";
+		GetCustomerInfoBean g1=new GetCustomerInfoBean("a","Wireless","restored");
+		GetCustomerInfoBean g2=new GetCustomerInfoBean("b","FIOS","restored");
+		GetCustomerInfoBean g3=new GetCustomerInfoBean("c","WirelineTV","restored");
+		List<GetCustomerInfoBean> list =new ArrayList<GetCustomerInfoBean>();
+		list.add(s1);
+		list.add(s2);
+		list.add(s3);
+		Vector<Services> expected=list;
+		
+		GetCustomerInfoDAO gd=new GetCustomerInfoDAO();
+		Vector<Services> actual=gd.getCustomerInfo(input1);
+		assertTrue(expected,actual);
+	}
+
+}

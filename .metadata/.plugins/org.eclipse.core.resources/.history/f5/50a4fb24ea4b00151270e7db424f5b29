@@ -1,0 +1,4 @@
+
+public class SuspendRestore {
+	int add(int a,int b)
+}

@@ -1,0 +1,68 @@
+package com.suspendRestore;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+/**
+ * Servlet implementation class SuspendComplete
+ */
+@WebServlet("/SuspendComplete")
+public class SuspendComplete extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String str =request.getParameter("services");
+		System.out.println(str);
+		HttpSession session=request.getSession();
+		SuspendDAO dao=new SuspendDAOImpl();
+		GetCustomerInfoBean gcib = new GetCustomerInfoBean();
+		try{
+			Class.forName("oracle.jdbc.OracleDriver");
+			String url="jdbc:oracle:thin:@localhost:1521:orcl";
+			Connection connection=DriverManager.getConnection(url,"scott","tiger");
+			int custId=(Integer)session.getAttribute("customerID");
+			System.out.println(custId);
+			String services=request.getParameter("services");//("customerID");
+			System.out.println(custId);
+			//PreparedStatement statement=connection.prepareStatement("select service_current_status from customer_services where customer_id="+((Integer)(session.getAttribute("customerID")))+"and service_id='"+request.getParameter("services")+"'");
+			PreparedStatement statement=connection.prepareStatement("select service_current_status from customer_services where customer_id=? and service_id=?");
+			statement.setInt(1,custId);
+			statement.setString(2,services);
+			ResultSet result=statement.executeQuery();
+			while(result.next()){
+				System.out.println("inside while");
+				if((result.getString(1)).equals("suspended")){
+					dao.changeStatus_order(((Integer)(session.getAttribute("customerID"))),"r");
+					System.out.println("inside if");
+					gcib.setOrder_type("r");
+					dao.changeStatus_customer((Integer)(session.getAttribute("customerID")), str,"active");
+				}
+				else{
+					dao.changeStatus_order(((Integer)(session.getAttribute("customerID"))),"s");
+					gcib.setOrder_type("s");
+					dao.changeStatus_customer((Integer)(session.getAttribute("customerID")), str,"suspended");
+				}
+			}
+		}catch(ClassNotFoundException | SQLException e){
+			e.printStackTrace();
+		}
+		RequestDispatcher rd= request.getRequestDispatcher("Message.jsp");
+		rd.forward(request, response);
+	}
+}

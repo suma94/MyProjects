@@ -1,0 +1,68 @@
+package com.suspendRestore;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+public class SuspendDAOImpl implements SuspendDAO{
+	private Connection connection;
+	private PreparedStatement statement;
+	private ResultSet result;
+	private String date;
+	@Override
+	public void getDBConnection() {
+		try{
+			Class.forName("oracle.jdbc.OracleDriver");
+			String url="jdbc:oracle:thin:@localhost:1521:orcl";
+			connection=DriverManager.getConnection(url,"scott","tiger");
+		}catch(ClassNotFoundException | SQLException e){
+			e.printStackTrace();
+		}	
+	}
+
+	@Override
+	public void closeDBConnection() {
+		try {
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void setSysDate() {
+		getDBConnection();
+		try {
+			statement=connection.prepareStatement("select sysdate from dual");
+			result=statement.executeQuery();
+			while(result.next()){
+				date=result.
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public List<GetCustomerInfoBean> getServices(int customerID) {
+		
+		return null;
+	}
+
+	@Override
+	public void changeStatus_customer(int custID, int serviceID,
+			String current_status) {
+		
+		
+	}
+
+	@Override
+	public void changeStatus_order(int custID, String order_type) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

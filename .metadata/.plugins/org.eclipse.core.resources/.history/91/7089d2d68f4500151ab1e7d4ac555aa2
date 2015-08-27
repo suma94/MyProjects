@@ -1,5 +1,0 @@
-package assignment20;
-
-public interface BillAmount {
-
-}

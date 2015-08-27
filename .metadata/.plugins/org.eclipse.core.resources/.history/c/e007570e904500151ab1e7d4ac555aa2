@@ -1,5 +1,0 @@
-package assignment20;
-
-public class BillAmountImpl implements BillAmount {
-	
-}

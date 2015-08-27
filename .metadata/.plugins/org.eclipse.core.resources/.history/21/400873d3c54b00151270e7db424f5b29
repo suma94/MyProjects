@@ -1,0 +1,24 @@
+package com.suspendRestore.Test;
+
+import static org.junit.Assert.*;
+
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.Test;
+
+import com.suspendRestore.SuspendDAOImpl;
+
+public class DAOImplTest {
+	SuspendDAOImpl dao;
+	@Before
+	public void initEnvironment()//SETS UP TESTING ENVIRONMENT
+	{
+		dao=new SuspendDAOImpl();
+		System.out.println("creating test environment");
+	}
+	@Test
+	public void test() {
+		
+	}
+
+}

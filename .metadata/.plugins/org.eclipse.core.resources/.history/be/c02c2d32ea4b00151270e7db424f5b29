@@ -1,0 +1,6 @@
+import javax.jws.WebService;
+
+@WebService
+public class SuspendRestore {
+	@WebService public int add(int a,int b)
+}

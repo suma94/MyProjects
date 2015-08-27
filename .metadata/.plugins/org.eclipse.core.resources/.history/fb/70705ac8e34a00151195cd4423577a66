@@ -1,0 +1,26 @@
+package com.suspendRestore;
+
+public class SuspendBean {
+	private int customerID;
+	private int serviceID;
+	private String status;
+	public int getCustomerID() {
+		return customerID;
+	}
+	public void setCustomerID(int customerID) {
+		this.customerID = customerID;
+	}
+	public int getserviceID() {
+		return orderID;
+	}
+	public void setOrderID(int orderID) {
+		this.orderID = orderID;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
+}

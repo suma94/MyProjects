@@ -1,0 +1,8 @@
+package org.tempuri;
+
+public class Services {
+	 Service1 p=new Service1();
+	Service1Soap p1=p.getService1Soap();
+	ArrayOfClass2 p2=p1.getservice(cid);
+	
+}

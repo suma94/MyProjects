@@ -1,0 +1,31 @@
+<%@page import="java.io.PrintWriter"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@page import="java.sql.*" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<%
+	Connection conn;
+	try{
+		Class.forName("oracle.jdbc.OracleDriver");
+		String url="jdbc:oracle:thin:@localhost:1521:orcl";
+		conn=DriverManager.getConnection(url, "scott","tiger");
+	}catch(ClassNotFoundException | SQLException e ){
+		e.printStackTrace();
+	}
+	PreparedStatement st=conn.preparedstatement("select * from cust_details where mobilenumber="+request.getParameter("mobilenumber"));
+	ResultSet rs=st.executeQuery();
+	PrintWriter pw;
+	while(rs.next()){
+		pw.println(rs.getString(1)+" "+rs.getString(2)+" "+rs.getString(3)+" "+rs.getString(4));
+	}%>
+	<form>
+		<input type="button" value="ok" onclick="checkBillDetails.jsp">
+	</form>
+</body>
+</html>

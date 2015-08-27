@@ -1,3 +1,0 @@
-empcode.err=Employee code should not be less than or equal to zero.
-name.empty=Employee name should not be empty
-salary.err=Employee salary shouldnot be less than or equal to zero.

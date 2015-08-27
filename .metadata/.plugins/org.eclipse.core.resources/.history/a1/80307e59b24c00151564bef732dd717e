@@ -1,0 +1,53 @@
+package com.suspendRestore;
+
+public class OrderBean {
+	private int customerID;
+	private int orderID;
+	private String orderStatus;
+	private String order_due_date;
+	private String order_negotiation_date;
+	private String order_completion_date;
+	private String orderType;
+	public int getCustomerID() {
+		return customerID;
+	}
+	public void setCustomerID(int customerID) {
+		this.customerID = customerID;
+	}
+	public int getOrderID() {
+		return orderID;
+	}
+	public void setOrderID(int orderID) {
+		this.orderID = orderID;
+	}
+	public String getOrderStatus() {
+		return orderStatus;
+	}
+	public void setOrderStatus(String orderStatus) {
+		this.orderStatus = orderStatus;
+	}
+	public String getOrder_due_date() {
+		return order_due_date;
+	}
+	public void setOrder_due_date(String order_due_date) {
+		this.order_due_date = order_due_date;
+	}
+	public String getOrder_negotiation_date() {
+		return order_negotiation_date;
+	}
+	public void setOrder_negotiation_date(String order_negotiation_date) {
+		this.order_negotiation_date = order_negotiation_date;
+	}
+	public String getOrder_completion_date() {
+		return order_completion_date;
+	}
+	public void setOrder_completion_date(String order_completion_date) {
+		this.order_completion_date = order_completion_date;
+	}
+	public String getOrderType() {
+		return orderType;
+	}
+	public void setOrderType(String orderType) {
+		this.orderType = orderType;
+	}
+}
